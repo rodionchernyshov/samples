@@ -1,0 +1,178 @@
+.container {
+  margin: 0;
+  cursor: inherit;
+  font-weight: var(--font-default-weight);
+  letter-spacing: 0;
+}
+
+.faceDefault {
+  font-family: var(--font-default);
+}
+
+.textCaps {
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  letter-spacing: 1px;
+  line-height: 15px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.textSmallCaps {
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  font-weight: var(--font-medium-weight);
+  letter-spacing: 1.3px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.textExtraSmallCaps {
+  font-size: var(--font-size-xxs);
+  font-style: normal;
+  font-weight: var(--font-medium-weight);
+  letter-spacing: 1px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.sSizeCaps {
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: var(--font-medium-weight);
+  letter-spacing: 1.3px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.textSizeXxxs {
+  font-size: var(--font-size-xxxs);
+}
+
+.textSizeXxs {
+  font-size: var(--font-size-xxs);
+}
+
+.textSizeXs {
+  font-size: var(--font-size-xs);
+}
+
+.textSizeS {
+  font-size: var(--font-size-s);
+}
+
+.textSizeM {
+  font-size: var(--font-size-m);
+}
+
+.textSizeL {
+  font-size: var(--font-size-l);
+}
+
+.textSizeXl {
+  font-size: var(--font-size-xl);
+}
+
+.textSizeXxl {
+  font-size: var(--font-size-xxl);
+}
+
+.textSizeXxxl {
+  font-size: var(--font-size-xxxl);
+}
+
+.textSizeXxxxl {
+  font-size: var(--font-size-xxxxl);
+}
+
+.textLight {
+  font-weight: var(--font-light-weight);
+}
+
+.textMedium {
+  font-weight: var(--font-medium-weight);
+}
+
+.textBold {
+  font-weight: var(--font-bold-weight);
+}
+
+.textItalic {
+  font-style: italic;
+}
+
+.textUppercase {
+  text-transform: uppercase;
+}
+
+.colorBlack {
+  color: var(--classic-black);
+}
+
+.colorWhite {
+  color: var(--classic-white);
+}
+
+.colorGrey {
+  color: var(--writer-grey-1);
+}
+
+.colorGrey2 {
+  color: var(--writer-grey-2);
+}
+
+.colorOrange {
+  color: var(--classic-orange-3);
+}
+
+.colorGrey3 {
+  color: var(--writer-grey-3);
+}
+
+.colorPurple3 {
+  color: var(--classic-purple-3);
+}
+
+.colorClassicGrey3 {
+  color: var(--classic-grey-3);
+}
+
+.highlightLightOrange {
+  background-color: var(--classic-orange-0);
+}
+
+.highlightRed {
+  border-bottom: var(--text-highlight-border-red);
+  background-color: var(--classic-orange-1);
+}
+
+.highlightGreen {
+  border-bottom: var(--text-highlight-border-green);
+  background-color: var(--classic-green-1);
+}
+
+.ellipsisOverflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.faceMonospace {
+  font-family: var(--font-monospace);
+}
+
+.faceArial {
+  font-family: var(--font-arial);
+}
+
+.backgroundGreen {
+  background-color: var(--classic-green-1);
+}

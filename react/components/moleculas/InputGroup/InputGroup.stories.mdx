@@ -1,0 +1,245 @@
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { InputGroup as InputGroupProps, InputGroup, InputTypes } from './index';
+import { Autocomplete } from './Autocomplete';
+import { autocompleteOptions, defaultValue, selectOptions } from './__mock__';
+
+<Meta title="Molecule/InputGroup" component={InputGroup} />
+
+# InputGroup
+
+InputGroup component
+
+## How to use
+
+```html
+<InputGroup value={value} handleChangeInput={(e) => setValue(e.target.value)} id = 'custom-1' label = 'Input Label' />
+```
+
+## Arguments
+
+<ArgsTable of={InputGroupProps} />
+
+export const Template = ({ styles, ...args }) => {
+  const [value, setValue] = useState('');
+  const [defaultOptions, setDefaultOptions] = useState(args.defaultValue);
+  const onChangeInput = values => {
+    console.log(values);
+    setDefaultOptions(values);
+  };
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...styles,
+      }}
+    >
+      <InputGroup
+        value={value.name || value}
+        style={{ width: 350, minHeight: 70 }}
+        defaultValue={defaultOptions}
+        handleChangeInput={onChangeInput}
+        {...args}
+      />
+    </div>
+  );
+};
+
+## Variations
+
+export const Params1 = {
+  id: 'custom-1',
+  label: 'Input Label',
+  placeholder: 'Placeholder',
+  required: false,
+  errorText: '',
+  helperText: '',
+};
+
+### default
+
+<Canvas>
+  <Story name="default" args={Params1}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### select
+
+export const Template2 = args => {
+  const [value, setValue] = useState(args.value);
+  const [dropdownOptions, setDropdownOptions] = useState(args.dropdownOptions);
+  const handleChangeInput = id => {
+    setDropdownOptions(
+      dropdownOptions.map(option => (option.id === id ? { ...option, active: true } : { ...option, active: false })),
+    );
+    setValue(dropdownOptions.find(team => team.id === id));
+  };
+  return (
+    <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <InputGroup
+        value={value.name || value}
+        style={{ width: 350, minHeight: 70 }}
+        defaultValue={dropdownOptions}
+        {...args}
+        handleChangeInput={handleChangeInput}
+      />
+    </div>
+  );
+};
+
+export const Params3 = {
+  id: 'partOfSpeech',
+  inputType: InputTypes.SELECT,
+  label: 'USE ANOTHER TEAM’S SUGGESTIONS',
+  value: 'Select',
+  required: false,
+  dropdownOptions: selectOptions,
+  handleChangeInput: () => {},
+};
+
+<Canvas>
+  <Story name="select" args={Params3}>
+    {Template2.bind({})}
+  </Story>
+</Canvas>
+
+### autocomplete
+
+export const Params2 = {
+  id: 'custom-1',
+  inputType: InputTypes.AUTOCOMPLETE,
+  label: 'Team admins',
+  placeholder: 'Placeholder',
+  required: false,
+  autocompleteOptions: autocompleteOptions,
+  defaultValue: defaultValue,
+  errorText: '',
+  prefilledTagsTooltip: 'Org admins cannot be removed from teams',
+};
+
+<Canvas>
+  <Story name="autocomplete" args={Params2}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### autocomplete input
+
+<Canvas>
+  <Story name="Autocomplete Input">
+    {() => {
+      const options = [
+        { name: 'The Shawshank Redemption', subText: '1994' },
+        { name: 'The Movie', subText: '1972' },
+        { name: 'The Godfather: Part II', subText: '1974' },
+        { name: 'The Good, the Bad and the Ugly', subText: '1966' },
+        { name: 'Fight Club', subText: '1999' },
+        { name: 'The Lord of the Rings', subText: '2001' },
+        { name: 'Star Wars: Episode V ', subText: '1980' },
+        { name: 'Forrest Gump', subText: '1994' },
+        { name: 'Goodfellas', subText: '1990' },
+        { name: 'The Matrix', subText: '1999' },
+        { name: 'Seven Samurai', subText: '1954' },
+        { name: 'Star Wars: Episode IV - A New Hope', subText: '1977' },
+        { name: 'City of God', subText: '2002' },
+        { name: 'Se7en', subText: '1995' },
+        { name: 'The Silence of the Lambs', subText: '1991' },
+        { name: "It's a Wonderful Life", subText: '1946' },
+        { name: 'Life Is Beautiful', subText: '1997' },
+        { name: 'The Usual Suspects', subText: '1995' },
+        { name: 'Léon: The Professional', subText: '1994' },
+        { name: 'Spirited Away', subText: '2001' },
+        { name: 'Saving Private Ryan', subText: '1998' },
+        { name: 'Once Upon a Time in the West', subText: '1968' },
+        { name: 'American History X', subText: '1998' },
+        { name: 'Interstellar', subText: '2014' },
+        { name: 'Casablanca', subText: '1942' },
+        { name: 'City Lights', subText: '1931' },
+        { name: 'Psycho', subText: '1960' },
+        { name: 'The Green Mile', subText: '1999' },
+        { name: 'The Intouchables', subText: '2011' },
+        { name: 'Modern Times', subText: '1936' },
+        { name: 'Raiders of the Lost Ark', subText: '1981' },
+      ];
+      const [value, setValue] = useState([]);
+      return (
+        <div
+          style={{
+            background: '#EFF0F2',
+            width: '100%',
+            height: '500px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Autocomplete {...{ options, value, setValue }} />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### quill input
+
+export const Params4 = {
+  id: 'snippet',
+  name: 'snippet',
+  placeholder:
+    'e.g. Our mission is to enhance the lives of our customers by creating and enabling unsurpassed vacation and leisure experiences.',
+  inputType: InputTypes.RICH_EDITOR,
+  label: 'Snippet',
+  multiline: true,
+  rows: 6,
+  value: '',
+  required: false,
+  handleChangeInput: () => {},
+  labelTooltipContent: "This is the text that you'd like to automatically insert using your specified shortcut.",
+  styles: { display: 'block', width: 450 },
+};
+
+<Canvas>
+  <Story name="rich text editor" args={Params4}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+export const ParamsWithHelperText = {
+  id: 'custom-2',
+  label: 'Input Label',
+  placeholder: 'Placeholder',
+  required: false,
+  errorText: '',
+  helperText: 'helperText',
+};
+
+export const ParamsWithAdditionalText = {
+  id: 'custom-1',
+  label: 'Input Label',
+  placeholder: 'Placeholder',
+  required: false,
+  errorText: '',
+  helperText: '',
+  additionalText: 'additional text',
+};
+
+### with a helper text
+
+<Canvas>
+  <Story name="helper" args={ParamsWithHelperText}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### with an additional text
+
+<Canvas>
+  <Story name="additional" args={ParamsWithAdditionalText}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

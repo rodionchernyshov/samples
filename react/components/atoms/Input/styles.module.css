@@ -1,0 +1,116 @@
+.inputWrapper {
+  position: relative;
+  border: 1px solid var(--writer-graynu-3);
+  border-radius: 4px;
+  background: var(--classic-white);
+  font-family: var(--font-default);
+}
+
+.inputWrapper:hover {
+  border: 1px solid var(--writer-blue-3);
+}
+
+label + .inputWrapper {
+  margin-top: 0;
+}
+
+.input {
+  height: auto;
+  padding: 8px 15px;
+  border-radius: 4px;
+  background: var(--classic-white);
+  font-size: var(--font-size-m);
+  line-height: 24px;
+}
+
+.placeHolderShown {
+}
+
+.filled {
+  border-color: var(--writer-graynu-3);
+}
+
+.disabled {
+  border-color: var(--writer-graynu-1) !important;
+  background: var(--writer-graynu-1) !important;
+  color: var(--classic-grey-2) !important;
+}
+
+.disabled:hover {
+  border-color: var(--writer-graynu-1) !important;
+}
+
+.placeHolderShown::after {
+}
+
+.focused {
+  border: 1px solid var(--writer-blue-3);
+  box-shadow: var(--input-box-shadow);
+}
+
+.focused::after {
+}
+
+.error {
+  border: 1px solid var(--classic-orange-1) !important;
+  box-shadow: var(--menu-box-shadow);
+}
+
+.inputWrapper textarea {
+  font-family: var(--font-default);
+  resize: vertical;
+}
+
+.inputRounded {
+  border-radius: 8px;
+}
+
+.inputRounded textarea {
+  border-radius: 8px;
+}
+
+.inputWrapperMultiline::after {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 10px;
+  height: 15px;
+  border: 5px solid transparent;
+  border-radius: 0;
+  border-top: 7px solid var(--classic-white);
+  border-left: 8px solid var(--classic-white);
+  background-color: transparent !important;
+  content: ' ';
+  font-size: 13px;
+  line-height: 29px;
+  pointer-events: none;
+  text-align: center;
+}
+
+.multiLine {
+  padding: 0;
+}
+
+.multiLine textarea {
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 9px;
+}
+
+.inputWrapper input,
+.inputWrapper textarea {
+  height: auto;
+  padding: 8px 15px;
+  border-radius: 4px;
+  background: var(--classic-white);
+  font-family: var(--font-default);
+  font-size: var(--font-size-m);
+  line-height: 24px;
+}
+
+.inputWrapper input::placeholder,
+.inputWrapper textarea::placeholder {
+  font-size: 12px;
+}
